@@ -1,7 +1,7 @@
-$primary: #f2cc3e;
+$primary: green;
 
 $grid-columns:      12;
-$grid-gutter-width: 20px;
+$grid-gutter-width: 5px;
 
 $grid-breakpoints: (
   xs: 0,
@@ -14,6 +14,6 @@ $grid-breakpoints: (
 $container-max-widths: (
   sm: 540px,
   md: 720px,
-  lg: 1300px,
+  lg: 920px,
   xl: 1300px
 );
