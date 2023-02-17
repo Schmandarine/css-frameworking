@@ -5,10 +5,10 @@ $grid-gutter-width: 5px;
 
 $grid-breakpoints: (
   xs: 0,
-  sm: 479px,
+  sm: 478px,
   md: 767px,
   lg: 991px,
-  xl: 1440px
+  xl: calc(1300px + $grid-gutter-width * 2)
 );
 
 $container-max-widths: (
