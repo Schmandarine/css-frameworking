@@ -1,0 +1,19 @@
+$primary: #f2cc3e;
+
+$grid-columns:      12;
+$grid-gutter-width: 20px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 479px,
+  md: 767px,
+  lg: 991px,
+  xl: 1440px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 1300px,
+  xl: 1300px
+);
