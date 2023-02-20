@@ -5221,4 +5221,8 @@ progress {
 }
 body {
   background-color: green;
+}
+
+.padding-sm {
+  padding: clamp(1rem, 3%, 1.5rem);
 }/*# sourceMappingURL=style.css.map */

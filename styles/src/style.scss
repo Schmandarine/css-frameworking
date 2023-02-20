@@ -23,3 +23,7 @@
 // scss-docs-end import-stack
 
 body {background-color: $primary;}
+
+.padding-sm {
+    padding: $padding-sm;
+}
