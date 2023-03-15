@@ -22,8 +22,50 @@
 @import "../../node_modules/bootstrap/scss/utilities/api";
 // scss-docs-end import-stack
 
-body {background-color: $primary;}
+@font-face {
+    font-family: 'Newake-Font-Demo';
+    src: url(../../Newake-Font-Demo.otf);
+}
+
+body {
+    background-color: $primary;
+    font-family: 'Newake-Font-Demo'!important;
+}
+
+* {
+    --space:1.5em;
+}
+
 
 .padding-sm {
     padding: $padding-sm;
+}
+
+#framework {
+    .stack {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;        
+    }
+    .stack:only-child {
+        /* ↓ `height` in horizontal-tb writing mode */
+        block-size: 100%;
+    }      
+    
+    .stack > * + * {
+        margin-block-start: var(--space, 1.5em);
+    }
+    
+    .stack-exception,
+    .stack-exception + * {
+    --space: 3rem;
+    }
+    
+    .stack-push > :nth-child(1) {
+        margin-block-end: auto;
+    }
+}
+
+[data-space="small"] {
+
 }

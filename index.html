@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./styles/dist/style.css">
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="d-none">
         <h1>Padding with Clamp</h1>
         <div class="padding-wrapper">
             <div class="card bg-white padding-sm">
@@ -63,6 +63,31 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div id="framework">
+        <div class="stack">
+            <div class="p-2 bg-secondary">test</div>
+            <div class="p-2 bg-secondary stack-exception">
+                <div class="stack" data-space="small">
+                    <div class="row">
+                        <div class="col">
+                            <div class="stack stack-push">
+                                <div class="bg-primary p-1" >exceptions</div>
+                                <div class="bg-primary p-1" >exceptions</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="bg-primary p-1">
+                                exceptions<br>exceptions<br><br>exceptionsexceptions
+                                exceptions<br>exceptions<br><br>exceptionsexceptions
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="p-2 bg-secondary">test</div>
+            <div class="p-2 bg-secondary">test</div>
+        </div>    
     </div>
 <script src="script.js"></script>    
 </body>

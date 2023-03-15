@@ -23,16 +23,16 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: yellow;
-  --bs-secondary: #6c757d;
+  --bs-primary: rgb(255, 216, 126);
+  --bs-secondary: rgb(138, 195, 255);
   --bs-success: #198754;
   --bs-info: #0dcaf0;
   --bs-warning: #ffc107;
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-primary-rgb: 255, 255, 0;
-  --bs-secondary-rgb: 108, 117, 125;
+  --bs-primary-rgb: 255, 216, 126;
+  --bs-secondary-rgb: 138, 195, 255;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 255, 193, 7;
@@ -62,8 +62,8 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: yellow;
-  --bs-link-hover-color: #cccc00;
+  --bs-link-color: rgb(255, 216, 126);
+  --bs-link-hover-color: #ccad65;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
@@ -1559,12 +1559,12 @@ progress {
 
 .text-bg-primary {
   color: #000 !important;
-  background-color: RGBA(255, 255, 0, var(--bs-bg-opacity, 1)) !important;
+  background-color: RGBA(255, 216, 126, var(--bs-bg-opacity, 1)) !important;
 }
 
 .text-bg-secondary {
-  color: #fff !important;
-  background-color: RGBA(108, 117, 125, var(--bs-bg-opacity, 1)) !important;
+  color: #000 !important;
+  background-color: RGBA(138, 195, 255, var(--bs-bg-opacity, 1)) !important;
 }
 
 .text-bg-success {
@@ -1598,17 +1598,17 @@ progress {
 }
 
 .link-primary {
-  color: yellow !important;
+  color: rgb(255, 216, 126) !important;
 }
 .link-primary:hover, .link-primary:focus {
-  color: #ffff33 !important;
+  color: #ffe098 !important;
 }
 
 .link-secondary {
-  color: #6c757d !important;
+  color: rgb(138, 195, 255) !important;
 }
 .link-secondary:hover, .link-secondary:focus {
-  color: #565e64 !important;
+  color: #a1cfff !important;
 }
 
 .link-success {
@@ -5219,10 +5219,41 @@ progress {
     display: none !important;
   }
 }
+@font-face {
+  font-family: "Newake-Font-Demo";
+  src: url(../../Newake-Font-Demo.otf);
+}
 body {
-  background-color: yellow;
+  background-color: rgb(255, 216, 126);
+  font-family: "Newake-Font-Demo" !important;
+}
+
+* {
+  --space:1.5em;
 }
 
 .padding-sm {
   padding: clamp(1rem, 3%, 1.5rem);
+}
+
+#framework .stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#framework .stack:only-child {
+  /* ↓ `height` in horizontal-tb writing mode */
+  block-size: 100%;
+}
+#framework .stack > * + * {
+  -webkit-margin-before: var(--space, 1.5em);
+          margin-block-start: var(--space, 1.5em);
+}
+#framework .stack-exception,
+#framework .stack-exception + * {
+  --space: 3rem;
+}
+#framework .stack-push > :nth-child(1) {
+  -webkit-margin-after: auto;
+          margin-block-end: auto;
 }/*# sourceMappingURL=style.css.map */
