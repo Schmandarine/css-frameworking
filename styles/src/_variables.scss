@@ -1,9 +1,23 @@
 * {    
   --space:1.5em;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
+
+// Color
 
 $primary: rgb(255, 216, 126);
 $secondary: rgb(138, 195, 255);
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+
+
+// Grid
 
 $grid-columns:      12;
 $grid-gutter-width: 10px;
@@ -17,7 +31,7 @@ $grid-breakpoints: (
 );
 
 $container-max-widths: (
-  sm: 540px,
+  sm: 100%,
   md: 720px,
   lg: 920px,
   xl: 1300px

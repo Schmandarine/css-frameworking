@@ -1,33 +1,9 @@
-.w-container {
-    @include make-container($gutter: $container-padding-x);
-    margin: unset;
-    max-width: unset;
-}
-.w-container .w-row {
-    @include make-row();
-    margin: unset;
-}
-.w-col {
-    position: unset;
-    float: unset;
-    width: unset;
-    min-height: unset;
-    padding-left: unset;
-    padding-right: unset;
-}
-img {
-    max-width: 100%;
-    vertical-align: middle;
-    display: inline-block;
-}
-
-
 
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
-*/
+
 
 html, body, div, span, applet, object, iframe,
 p, blockquote, pre,
@@ -55,10 +31,10 @@ h1, h2, h3, h4, h5, h6 {
     border: 0;
     vertical-align: baseline;
     font-weight: unset;
-    font-size: 1rem;
-    line-height: unset;
+    //font-size: 1rem;
+    //line-height: unset;
 }
-/* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -81,3 +57,43 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+*/
+
+.w-container, 
+.c-container {
+    @include make-container($gutter: $container-padding-x);
+    @include media-breakpoint-up(sm) {
+        max-width: map-get($container-max-widths,"sm");
+    }
+    @include media-breakpoint-up(md) {
+        max-width: map-get($container-max-widths,"md");
+    }
+    @include media-breakpoint-up(lg) {
+        max-width: map-get($container-max-widths,"lg");
+    }
+    @include media-breakpoint-up(xl) {
+        max-width: map-get($container-max-widths,"xl");
+    }
+}
+.w-container .w-row, 
+.c-container .c-row {
+    @include make-row();
+}
+.w-col,
+.c-col {
+    @include make-col-ready();
+    @include make-col();
+    @include media-breakpoint-down(sm) {
+        flex: 0 0 auto;
+    }
+    position: unset;
+    float: unset;
+    min-height: unset;
+}
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+

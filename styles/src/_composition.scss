@@ -2,31 +2,30 @@
     padding: $padding-sm;
 }
 
-#framework {
-    .stack {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;        
-    }
-    .stack:only-child {
-        /* ↓ `height` in horizontal-tb writing mode */
+
+.stack,
+.c-flow {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;        
+    &:only-child {
         block-size: 100%;
     }      
-    
-    .stack > * + * {
+    & > * + * {
         margin-block-start: var(--space, 1.5em);
     }
-    
-    .stack-exception,
-    .stack-exception + * {
-    --space: 3rem;
-    }
-    
-    .stack-push > :nth-child(1) {
-        margin-block-end: auto;
-    }
 }
 
-[data-space="small"] {
-
+.stack-exception,
+.stack-exception + * {
+--space: 3rem;
 }
+
+.stack-push > :nth-child(1) {
+    margin-block-end: auto;
+}
+
+
+/* [data-space="small"] {
+
+} */
