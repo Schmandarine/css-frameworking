@@ -1,8 +1,3 @@
-/* @font-face {
-    font-family: 'Newake-Font-Demo';
-    src: url(../../Newake-Font-Demo.otf);
-} */
-
 *, body {
     margin: 0;
     padding: 0;
@@ -10,5 +5,14 @@
 
 body {
     background-color: $light;
-    //font-family: 'Newake-Font-Demo'!important;
+    //font-family: 'Merriweather Sans';
+    font-family: 'Haufemerriweathersans';
+    //font-weight: 300;
+}
+
+
+$feature-bg: #ffd803;
+
+.v1 {
+  @include button-variant($feature-bg, darken($feature-bg, 3%));
 }

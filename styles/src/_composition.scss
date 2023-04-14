@@ -5,6 +5,7 @@
 
 .stack,
 .c-flow {
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;        
@@ -12,7 +13,7 @@
         block-size: 100%;
     }      
     & > * + * {
-        margin-block-start: var(--space, 1.5em);
+        margin-block-start: var(--space, 1.5rem);
     }
 }
 
@@ -21,9 +22,9 @@
 --space: 3rem;
 }
 
-.stack-push > :nth-child(1) {
+/* .stack-push > :nth-child(1) {
     margin-block-end: auto;
-}
+} */
 
 
 /* [data-space="small"] {
