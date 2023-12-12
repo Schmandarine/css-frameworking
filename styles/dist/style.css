@@ -1519,7 +1519,7 @@ img {
 }
 
 body {
-  background-color: #f8f9fa;
+  background-color: red;
   font-family: "Haufemerriweathersans";
 }
 
@@ -1625,8 +1625,7 @@ p, .c-paragraph, .c-text-2 {
 }
 .stack > * + *,
 .c-flow > * + * {
-  -webkit-margin-before: var(--space, 1.5rem);
-          margin-block-start: var(--space, 1.5rem);
+  margin-block-start: var(--space, 1.5rem);
 }
 
 .stack-exception,
