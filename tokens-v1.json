@@ -1,0 +1,65 @@
+{
+    "Color": {
+        "blue": {
+            "blue-50": "#eff1fb",
+            "blue-100": "#dfe5fb",
+            "blue-200": "#c4cffd",
+            "blue-300": "#a4b6fe",
+            "blue-400": "#7c96fe",
+            "blue-500": "#4d6efe",
+            "blue-600": "#075BFA",
+            "blue-700": "#033cb0",
+            "blue-800": "#08297d",
+            "blue-900": "#0a1748"
+        },
+        "gray": {
+            "gray-50": "#f1f2f4",
+            "gray-100": "#e1e4ea",
+            "gray-200": "#c0c6d3",
+            "gray-300": "#a1abbf",
+            "gray-400": "#8693ac",
+            "gray-500": "#6e7a91",
+            "gray-600": "#565f71",
+            "gray-700": "#3f4655",
+            "gray-850": "#23272f"
+        },
+        "gradients": {
+            "akademie": "linear-gradient(45deg, #8800FF 0%, #3E45FF 50%, #22c5e2 100%)"
+        },
+        "neutral": {
+            "black": "#000000",
+            "white": "#ffffff"
+        },
+        "extended": {
+            "green-50": "#dafac2",
+            "green-200": "#7cdd40",
+            "green-600": "#386917",
+            "green-700": "#2a5110",
+            "yellow-100": "#fcdcab",
+            "yellow-200": "#fcb603",
+            "yellow-600": "#805b00",
+            "red-100": "#fbd9d0",
+            "red-600": "red-600"
+        }
+    },
+    "Type": {
+        "text-1": {
+            "d-family": "Bebas Neue",
+            "d-size": 96,
+            "d-weight": 300,
+            "d-lineHeight": "90%",
+            "d-letterSpacing": "0%",
+            "d-textDecoration": "none"
+        },
+        "text-2": {
+            "d-family": "Bebas Neue",
+            "d-size": 64,
+            "d-weight": 300,
+            "d-lineHeight": "90%",
+            "d-letterSpacing": "0%",
+            "d-textDecoration": "none"
+        }
+    }
+}
+
+

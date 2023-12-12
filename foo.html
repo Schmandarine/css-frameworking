@@ -1,0 +1,133 @@
+<script>
+class Menu {
+	constructor() {
+		this.sidebarNavi = document.querySelector(".c-nav");
+		this.className = "w--current";
+		this.subnavExpand = "[subnav-expand]";
+		this.setup();
+	}
+	update(data) {
+		// Remove Active Class from every link
+		this.sidebarNavi.querySelectorAll(`.${this.className}`).forEach((item) => {
+			item.classList.remove(this.className);
+		});
+		// For Every Link Element with the clicked URL
+		const currentPageElm = this.sidebarNavi.querySelectorAll(
+			`a[href="${data.next.url.path}"]`
+		);
+		currentPageElm.forEach((link) => {
+			link.classList.add(this.className);
+			const linkParent = $(link).parents("[nav-item-has-subnavi]");
+			linkParent.each((index, parent) => {
+				parent.setAttribute("aria-expanded", "true");
+			});
+		});
+		upDatebreadcrumbs();
+	}
+	setup() {
+		const allNavItemsParent = this.sidebarNavi.querySelectorAll(
+			"[nav-item-has-subnavi]"
+		);
+		allNavItemsParent.forEach((item) => {
+			item.setAttribute("aria-expanded", "false");
+		});
+
+		// Add event listener for icon
+		document.querySelectorAll(this.subnavExpand).forEach((item) => {
+			item.addEventListener("click", (e) => {
+				const $parentItem = $(e.target).closest("[nav-item-has-subnavi]");
+				const isExpanded = $parentItem.attr("aria-expanded") === "true";
+				$parentItem.attr("aria-expanded", !isExpanded);
+			});
+		});
+	}
+	getSubdirectories() {
+		const url = window.location.pathname;
+		const trimmedUrl = url.replace(/^\/|\/$/g, "");
+		const subdirectories = trimmedUrl.split("/");
+		const filteredSubdirectories = subdirectories.filter(
+			(subdir) => subdir !== ""
+		);
+		return filteredSubdirectories;
+	}
+}
+function upDatebreadcrumbs() {
+	console.log("breadcrumbs");
+	const subdirectories = menu.getSubdirectories();
+	const breadcrumbElement = document.querySelectorAll(".c-breadcrumb");
+	// Barba selects the old and new content, thats why we need to iterate through
+	breadcrumbElement.forEach((navbar) => {
+		let joinWrapper = "";
+		subdirectories.map((directory) => {
+			joinWrapper += "/" + directory;
+			const linkTempl = navbar.getElementsByTagName("a")[0].cloneNode(true);
+			linkTempl.textContent = directory.replace(/-/g, " ").charAt(0).toUpperCase() + directory.slice(1);			
+			linkTempl.href = joinWrapper;
+			navbar.appendChild(linkTempl);
+		});
+	});
+}
+
+function contentTable() {
+	const cloneNode = document.querySelector("[toc-template]").cloneNode(true);
+	const allContent = document.querySelectorAll("[tab-content]");
+
+	// Intersection Observer Options
+	var options = {
+		root: null,
+		rootMargin: "0px",
+		threshold: [1],
+	};
+
+	// Each Intersection Observer runs setCurrent
+	var observeHtags = new IntersectionObserver(setCurrent, options);
+
+	allContent.forEach((tabContent) => {
+		let contentTable = tabContent.querySelector(".c-content_table");
+		contentTable.innerHTML = "";
+		const allHtags = tabContent.querySelectorAll("h2");
+		allHtags.forEach((heading, count) => {
+			heading.setAttribute("id", encodeURI(heading.textContent.replace(/ /g, "-")));
+			let newLink = createTocLink(heading.textContent);
+			contentTable.append(newLink);
+		});
+		allHtags.forEach((tag) => {
+			observeHtags.observe(tag);
+		});
+	});
+
+	function createTocLink(content) {
+		const newLink = cloneNode.cloneNode(true);
+		newLink.innerHTML = content;
+		newLink.href = "#" + encodeURI(content.replace(/ /g, "-"));
+		return newLink;
+	}
+
+	// Function that runs when the Intersection Observer fires
+	function setCurrent(e) {
+		var allSectionLinks = document.querySelectorAll(".c-content_table-link");
+		e.map((i) => {
+			if (i.isIntersecting === true) {
+				allSectionLinks.forEach((link) => link.classList.remove("current"));
+				document
+					.querySelector(`a[href="#${i.target.id}"]`)
+					.classList.add("current");
+			}
+		});
+	}
+}
+
+function createNodes(data, containerDOM) {
+	let fragment = document.createDocumentFragment();
+
+	data.map(([key, value]) => {
+		let newDiv = containerDOM.querySelector("[template]").cloneNode(true);
+		newDiv.querySelector("[color]").style.backgroundColor = value;
+    newDiv.querySelector("[colorValue]").textContent = value;
+		newDiv.querySelector("[text]").textContent = key;
+		fragment.appendChild(newDiv);
+	});
+	containerDOM.textContent = "";
+	containerDOM.appendChild(fragment);
+}
+</script>
